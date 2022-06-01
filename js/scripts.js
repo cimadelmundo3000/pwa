@@ -6,3 +6,12 @@ if(navigator.serviceWorker){
     // Registro del SW
     navigator.serviceWorker.register(serviceWorkerLocation);
 }
+
+let d = document;
+
+d.getElementById('btn').addEventListener('click',()=>{
+
+    d.getElementById('container').innerHTML=Math.round(Math.random() * 1000000);
+
+
+})
