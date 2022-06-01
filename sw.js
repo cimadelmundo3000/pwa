@@ -7,15 +7,14 @@ const INMUTABLE_CACHE = 'inmutable-v1';
 const DYNAMIC_CACHE = 'dynamic-v1';
 
 const APP_SHELL_ESTATICO = [
-    // '/', Se comenta para Produccion !
-    '/index.html',
-    '/css/styles.css',
-    '/js/scripts.js',
-    '/js/sw-utils.js',
-    '/img/img1.jpg',
-    '/img/img2.jpg',
-    '/img/img3.jpg',
-    '/img/img4.jpg'
+    './index.html',
+    './css/styles.css',
+    './js/scripts.js',
+    './js/sw-utils.js',
+    './img/img1.jpg',
+    './img/img2.jpg',
+    './img/img3.jpg',
+    './img/img4.jpg'
 ]
 
 const APP_SHELL_INMUTABLE = [
