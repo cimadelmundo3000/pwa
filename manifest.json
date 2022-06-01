@@ -1,8 +1,8 @@
 {
     "short_name": "PWA",
     "name":"Aplicacion Web Progresiva",
-    "start_url":"/index.html",
-    "id":"/index.html",
+    "start_url":"./index.html",
+    "id":"./index.html",
     "background-color":"#333333",
     "display":"standalone",
     "orientation": "portrait",
