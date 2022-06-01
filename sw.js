@@ -7,7 +7,7 @@ const INMUTABLE_CACHE = 'inmutable-v1';
 const DYNAMIC_CACHE = 'dynamic-v1';
 
 const APP_SHELL_ESTATICO = [
-    '/',
+    // '/', Se comenta para Produccion !
     '/index.html',
     '/css/styles.css',
     '/js/scripts.js',
