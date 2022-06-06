@@ -29,7 +29,7 @@ const consultaRemota = async () => {
     document.querySelector('.contenedor-data').innerHTML=contenedorData;
     document.querySelector('.ori span').innerHTML="Base de Datos Remota ;)";*/
     const request = await fetch(
-        "https://tangerix.com:3000/" 
+        "http://tangerix.com:3000/lectura" 
     );
     const response = await request.json();
     console.log(response);
