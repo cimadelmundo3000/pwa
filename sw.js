@@ -50,7 +50,7 @@ self.addEventListener('activate',event=>{
 self.addEventListener('fetch',event=>{
     event.respondWith(
         caches.match(event.request).then((cacheResponse) => {
-            return cacheResponse || fetch(event.request).then((networkResponse) => {
+            return cacheResponse || fetch(event.request, {mode:"no-cors"}).then((networkResponse) => {
                 return caches.open(DYNAMIC_CACHE).then((cache) => {
                     
                     console.log('Adding Dynamic URL:', event.request.url);
