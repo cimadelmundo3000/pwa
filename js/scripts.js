@@ -18,7 +18,7 @@ d.getElementById('btn').addEventListener('click',()=>{
 const consultaRemota = async () => {
     contenedorData='';
     const request = await fetch(
-        "http://132.148.84.57:3000/lectura"
+        "http://tangerix.com:3000/lectura"
     );
     const response = await request.json();
     response.data.forEach(i => {

@@ -54,7 +54,7 @@ self.addEventListener('fetch',event=>{
                 return caches.open(DYNAMIC_CACHE).then((cache) => {
                     
                     console.log('Adding Dynamic URL:', event.request.url);
-                    if(!event.request.url.includes('132.148.84.57')){
+                    if(!event.request.url.includes('tangerix')){
                         cache.put(event.request, networkResponse.clone());
                     }
                     return networkResponse;
