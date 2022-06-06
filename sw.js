@@ -1,4 +1,3 @@
-importScripts('js/sw-utils.js');
 // APP SHELL
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
@@ -10,7 +9,7 @@ const APP_SHELL_ESTATICO = [
     './index.html',
     './css/styles.css',
     './js/scripts.js',
-    './js/sw-utils.js',
+    // './js/sw-utils.js',
     './img/img1.jpg',
     './img/img2.jpg',
     './img/img3.jpg',
@@ -18,7 +17,8 @@ const APP_SHELL_ESTATICO = [
 ]
 
 const APP_SHELL_INMUTABLE = [
-    'https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap'
+    'https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap',
+    'https://unpkg.com/dexie/dist/dexie.js'
 ]
 
 // INSTALACION DE CACHE
@@ -47,17 +47,20 @@ self.addEventListener('activate',event=>{
 // ESTRATEGIA DE CACHE (Caché Only)
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
-self.addEventListener('fetch',e=>{
-    const MYRESPONSE = caches.match(e.request).then(resp=>{
-        if(resp){
-            return resp;
-        }else{
-            // Update de Caché Dinámico.
-            console.log('Adding Dynamic URL:', e.request.url);
-            return fetch(e.request).then(newURLtoCache=>{
-                return updatingDynamicCache(DYNAMIC_CACHE, e.request, newURLtoCache);
-            })
-        }
-    })
-    e.respondWith(MYRESPONSE);
+self.addEventListener('fetch',event=>{
+    event.respondWith(
+        caches.match(event.request).then((cacheResponse) => {
+            return cacheResponse || fetch(event.request).then((networkResponse) => {
+                return caches.open(DYNAMIC_CACHE).then((cache) => {
+                    
+                    console.log('Adding Dynamic URL:', event.request.url);
+                    if(!event.request.url.includes('132.148.84.57')){
+                        cache.put(event.request, networkResponse.clone());
+                    }
+                    return networkResponse;
+                    
+                }); 
+            });
+        })
+    );
 });
