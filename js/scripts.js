@@ -16,16 +16,23 @@ d.getElementById('btn').addEventListener('click',()=>{
 })
 
 const consultaRemota = async () => {
+    /*
     contenedorData='';
     const request = await fetch(
         "http://tangerix.com:3000/lectura"
     );
+    // console.log(request);
     const response = await request.json();
     response.data.forEach(i => {
         contenedorData += `${i.nombre} - ${i.edad}<br>`;
     });
     document.querySelector('.contenedor-data').innerHTML=contenedorData;
-    document.querySelector('.ori span').innerHTML="Base de Datos Remota ;)";
+    document.querySelector('.ori span').innerHTML="Base de Datos Remota ;)";*/
+    const request = await fetch(
+        "https://localhost:3000/" 
+    );
+    const response = await request.json();
+    console.log(response);
 }
 
 
