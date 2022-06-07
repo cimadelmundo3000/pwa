@@ -86,6 +86,6 @@ conectionChecker();
 //////////// USO DE MEMORIA
 
 
-navigator.storage.estimate().then(function(estimate) {
-      document.querySelector('.uso').innerHTML=(Math.round((estimate.usage/1000).toFixed(2)))+' Bites';
+navigator.storage.estimate().then(function(resp) {
+      document.querySelector('.uso').innerHTML=(Math.round((resp.usage/1000).toFixed(2)))+' Bites';
 });
