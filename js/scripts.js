@@ -1,7 +1,8 @@
 let url = window.location.href;
 let w = window;
 let contenedorData='';
-let serviceWorkerLocation = './pwa/sw.js';
+// let serviceWorkerLocation = '/pwa/sw.js';
+let serviceWorkerLocation = '/sw.js';
 if(navigator.serviceWorker){
     // Localizacion del SW en produccion
     if(url.includes('localhost')){serviceWorkerLocation='/sw.js';}
